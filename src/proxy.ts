@@ -33,7 +33,14 @@ export async function proxy(req: NextRequest) {
     console.error('[FATAL] NEXTAUTH_SECRET is not set. Cannot validate session tokens.');
     return new NextResponse('Server misconfiguration: authentication secret is missing.', { status: 500 });
   }
-  const token = await getToken({ req, secret });
+  let token = null;
+  try {
+    token = await getToken({ req, secret });
+  } catch (error) {
+    // A rotated secret or stale/corrupt browser cookie must not crash routing.
+    // Treat the request as unauthenticated; protected pages will redirect to login.
+    console.warn('[AUTH] Could not validate session token:', error);
+  }
   const { pathname } = req.nextUrl;
   const nonce = btoa(crypto.randomUUID());
   const contentSecurityPolicy = createContentSecurityPolicy(nonce);
