@@ -297,7 +297,9 @@ function FeedbackContent() {
 
     const sessionKey = typeof sid === "string" && sid.length <= 100 ? sid : "";
     if (sessionKey) setSessionId(sessionKey);
-    if (storedFillers !== undefined) setFillerCount(storedFillers);
+    if (typeof storedFillers === "number" && Number.isFinite(storedFillers)) {
+      setFillerCount(storedFillers);
+    }
 
     // Check cache first to prevent infinite billing drain on refresh
     const cacheKey = `cached_report_${sessionKey || "temp"}`;

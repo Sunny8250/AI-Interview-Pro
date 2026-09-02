@@ -126,14 +126,14 @@ export async function POST(request: Request) {
         // _id has a unique index by default, reserving this payment globally,
         // rather than only on the document for the current account.
         await db.collection("payment_events").insertOne(
-          {
+          ({
             _id: paymentEventId,
             provider: "razorpay",
             providerOrderId: razorpay_order_id,
             email,
             plan: verifiedPlan,
             processedAt: new Date(),
-          },
+          } as any),
           { session: transaction },
         );
 

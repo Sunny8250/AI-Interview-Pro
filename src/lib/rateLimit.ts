@@ -64,7 +64,7 @@ export async function checkRateLimit(
 
     // BUG-09 Fix: Atomic rate limiter using an aggregation pipeline to prevent TOCTOU races
     const result = await db.collection('ratelimits').findOneAndUpdate(
-      { _id: recordId },
+      { _id: recordId } as any,
       [
         {
           $set: {

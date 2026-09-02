@@ -67,7 +67,7 @@ export async function POST(request: Request) {
       },
       createdAt: new Date(),
       expiresAt,
-    });
+    } as any);
 
     return NextResponse.json({ id, expiresAt: expiresAt.toISOString() }, { status: 201 });
   } catch (error) {

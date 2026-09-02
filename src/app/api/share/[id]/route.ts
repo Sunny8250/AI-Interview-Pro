@@ -19,7 +19,7 @@ export async function GET(request: Request, { params }: { params: Promise<{ id: 
     if (!activeDb) return NextResponse.json({ error: 'Report service unavailable' }, { status: 503 });
 
     const report = await activeDb.collection('public_reports').findOne(
-      { _id: id, expiresAt: { $gt: new Date() } },
+      { _id: id, expiresAt: { $gt: new Date() } } as any,
       { projection: { _id: 0, ownerId: 0 } },
     );
     if (!report) return NextResponse.json({ error: 'Report not found or expired' }, { status: 404 });

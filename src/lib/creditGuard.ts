@@ -102,7 +102,7 @@ export async function checkAndDeductCredit(
           // can deduct when the balance would go negative.
           if (guestDoc) {
             const result = await db.collection('guestcredits').updateOne(
-              { _id: guestId, aiCredits: { $gte: cost } },
+              { _id: guestId, aiCredits: { $gte: cost } } as any,
               { $inc: { aiCredits: -cost }, $set: { lastUpdated: new Date() } }
             );
             if (result.matchedCount === 0) {
@@ -114,7 +114,7 @@ export async function checkAndDeductCredit(
             // If another concurrent request wins the race, their insert stands and this
             // request returns a conflict (acceptable: rare first-request edge case).
             const result = await db.collection('guestcredits').updateOne(
-              { _id: guestId },
+              { _id: guestId } as any,
               { $setOnInsert: { ip: clientIp, aiCredits: newGuestBalance, lastUpdated: new Date() } },
               { upsert: true }
             );
@@ -278,7 +278,7 @@ export async function refundCredit(
 
     if (!cleanEmail) {
       await db.collection('guestcredits').updateOne(
-        { _id: guestCreditId(clientIp) },
+        { _id: guestCreditId(clientIp) } as any,
         { $inc: { aiCredits: cost }, $set: { lastUpdated: new Date() } }
       );
     } else {

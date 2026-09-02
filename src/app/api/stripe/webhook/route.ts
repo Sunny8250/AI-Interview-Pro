@@ -176,14 +176,14 @@ export async function POST(request: Request) {
         // The immutable Stripe event ID is globally unique. Inserting it inside
         // the transaction makes duplicate deliveries safe, including races.
         await db.collection("payment_events").insertOne(
-          {
+          ({
             _id: `stripe:${event.id}`,
             provider: "stripe",
             email,
             eventType: event.type,
             eventKind,
             processedAt: new Date(),
-          },
+          } as any),
           { session: transaction },
         );
 
