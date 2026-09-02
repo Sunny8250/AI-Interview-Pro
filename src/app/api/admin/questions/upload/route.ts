@@ -4,10 +4,10 @@ import pdfParse from "pdf-parse";
 import { connectToDatabase } from "@/lib/mongodb";
 import QuestionBank from "@/models/QuestionBank";
 import {
+  validateExtractedText,
   validatePdfBuffer,
   sanitizePromptInput,
 } from "@/lib/securitySanitizer";
-  validateExtractedText,
 import crypto from "crypto";
 import { requireAdmin } from "@/lib/authorization";
 
@@ -66,7 +66,10 @@ export async function POST(request: Request) {
 
     const extractedTextCheck = validateExtractedText(extractedText, 500_000);
     if (!extractedTextCheck.valid) {
-      return NextResponse.json({ error: extractedTextCheck.error }, { status: 413 });
+      return NextResponse.json(
+        { error: extractedTextCheck.error },
+        { status: 413 },
+      );
     }
 
     const CHUNK_SIZE = 12000; // About 2,000 to 2,500 words per chunk
