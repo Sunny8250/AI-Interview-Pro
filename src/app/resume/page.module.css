@@ -1,0 +1,171 @@
+.container {
+  max-width: 950px;
+  margin: 2rem auto 4rem;
+  padding: 2.5rem;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.uploadArea {
+  border: 2px dashed rgba(99, 102, 241, 0.4);
+  border-radius: 24px;
+  padding: 3rem 2rem;
+  text-align: center;
+  background: rgba(99, 102, 241, 0.04);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.uploadArea:hover, .uploadArea.active {
+  background: rgba(99, 102, 241, 0.08);
+  border-color: var(--primary-color);
+  transform: translateY(-2px);
+}
+
+.fileInput {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.jdTextarea {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  border-radius: 16px;
+  color: #f8fafc;
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  font-family: inherit;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+.jdTextarea:focus {
+  outline: none;
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+}
+
+.uploadContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.uploadIcon {
+  color: var(--primary-color);
+}
+
+.uploadText {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.uploadHint {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* Results UI Upgrade */
+.analysisResult {
+  margin-top: 2rem;
+  padding: 2.5rem;
+  border-radius: 24px;
+  background: rgba(30, 41, 59, 0.6);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.gridBanner {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 2rem;
+  align-items: center;
+  background: rgba(15, 23, 42, 0.6);
+  padding: 2rem;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+  .gridBanner {
+    grid-template-columns: 1fr;
+  }
+}
+
+.atsCircleBadge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  border-radius: 20px;
+  text-align: center;
+  background: radial-gradient(circle at center, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.95));
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.skillPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  background: rgba(99, 102, 241, 0.12);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  color: #a5b4fc;
+}
+
+.keywordTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 10px;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.matchTag {
+  background: rgba(34, 197, 94, 0.12);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  color: #4ade80;
+}
+
+.missingTag {
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #f87171;
+}
+
+.spinner {
+  width: 52px;
+  height: 52px;
+  border: 4px solid rgba(99, 102, 241, 0.2);
+  border-top-color: var(--primary-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 1.5rem;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

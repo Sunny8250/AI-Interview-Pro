@@ -1,0 +1,94 @@
+.dashboardContainer {
+  padding: 2rem 0;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.statCard {
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.statIcon {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: rgba(99, 102, 241, 0.1);
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.statInfo h4 {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+.statInfo p {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.actionsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+}
+
+.actionCard {
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.actionCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.actionCard:hover::before {
+  opacity: 1;
+}
+
+.actionHeader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.actionTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.actionDesc {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}

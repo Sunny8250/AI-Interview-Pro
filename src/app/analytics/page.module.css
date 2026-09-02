@@ -1,0 +1,100 @@
+.analyticsPage {
+  min-height: 100vh;
+  padding: 2.5rem 1.5rem 4rem;
+}
+
+.container {
+  max-width: 1050px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.header h1 {
+  font-size: 2.25rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #6366f1, #38bdf8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 1.75rem;
+  backdrop-filter: blur(12px);
+}
+
+.cardTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #f8fafc;
+}
+
+.trendLine {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  height: 140px;
+  padding-top: 1rem;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.15);
+  margin-bottom: 0.5rem;
+}
+
+.trendBar {
+  flex: 1;
+  background: linear-gradient(180deg, #6366f1, #38bdf8);
+  border-radius: 6px 6px 0 0;
+  transition: height 0.5s ease;
+  position: relative;
+}
+
+.trendBar:hover::after {
+  content: attr(data-score);
+  position: absolute;
+  top: -24px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #38bdf8;
+}
+
+.weaknessList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.weaknessItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  padding: 0.85rem 1.25rem;
+  border-radius: 12px;
+  color: #f87171;
+  font-size: 0.9rem;
+  font-weight: 500;
+}

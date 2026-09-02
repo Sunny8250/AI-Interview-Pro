@@ -1,0 +1,141 @@
+.page {
+  min-height: 100vh;
+  padding: 2rem 1rem 4rem;
+}
+
+.container {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+  animation: fadeUp 0.4s ease-out both;
+}
+
+.header h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+}
+
+.searchBar {
+  position: relative;
+  margin-bottom: 1.5rem;
+  animation: fadeUp 0.4s ease-out 0.05s both;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 2.75rem;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  color: #f8fafc;
+  font-size: 0.95rem;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+}
+
+.searchInput::placeholder { color: rgba(255,255,255,0.3); }
+.searchInput:focus { outline: none; border-color: rgba(251,191,36,0.5); }
+
+.searchIcon {
+  position: absolute;
+  left: 0.85rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(255,255,255,0.3);
+  pointer-events: none;
+}
+
+.bookmarkList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.bookmarkCard {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 1.5rem;
+  animation: fadeUp 0.4s ease-out both;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.bookmarkCard:hover {
+  background: rgba(255,255,255,0.05);
+  border-color: rgba(251,191,36,0.3);
+}
+
+.bookmarkTop {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.bookmarkQuestion {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #f8fafc;
+  line-height: 1.5;
+  flex: 1;
+}
+
+.bookmarkMeta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  flex-wrap: wrap;
+}
+
+.roleTag {
+  padding: 2px 10px;
+  border-radius: 12px;
+  background: rgba(251, 191, 36, 0.12);
+  border: 1px solid rgba(251, 191, 36, 0.25);
+  color: #fbbf24;
+  font-weight: 600;
+  font-size: 0.75rem;
+}
+
+.cardActions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.empty {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--text-secondary);
+  animation: fadeUp 0.4s ease-out both;
+}
+
+.empty svg { margin-bottom: 1rem; opacity: 0.3; color: #fbbf24; }
+.empty h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem; color: #e2e8f0; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
